@@ -11,7 +11,7 @@ from utils.nms import single_class_non_max_suppression
 from load_model.pytorch_loader import load_pytorch_model, pytorch_inference
 
 # model = load_pytorch_model('models/face_mask_detection.pth');
-model = load_pytorch_model('models/model360.pth');
+model = load_pytorch_model('face-detection/models/model360.pth');
 # anchor configuration
 #feature_map_sizes = [[33, 33], [17, 17], [9, 9], [5, 5], [3, 3]]
 feature_map_sizes = [[45, 45], [23, 23], [12, 12], [6, 6], [4, 4]]
@@ -49,7 +49,7 @@ def inference(image,
     output_info = []
     height, width, _ = image.shape
     image_resized = cv2.resize(image, target_shape)
-    image_np = image_resized / 255.0  # 归一化到0~1
+    image_np = image_resized / 255.0  # normalize 到0~1
     image_exp = np.expand_dims(image_np, axis=0)
 
     image_transposed = image_exp.transpose((0, 3, 1, 2))
