@@ -1,14 +1,9 @@
 # FaceMaskDetection
-[中文版](README-zh.md) | English version
+ English version
 
 ### We open source all the popular deep learning frameworks' model and inference code to do face mask detection.
 
  - [x] PyTorch
-- [x] TensorFlow（include tflite and pb model）
-- [x] Keras
-- [x] MXNet
-- [x] Caffe
-
 
 
 ** Detect faces and determine whether they are  wearing mask. **
@@ -58,23 +53,8 @@ python pytorch_infer.py --img-mode 0 --video-path /path/to/video
 # If you want to run with camera video, set  video_path to be 0
 python pytorch_infer.py --img-mode 0 --video-path 0
 ```
-### TensorFlow/Keras/MXNet/Caffe
-The other four frameworks running method is similar to pytorch, just replace `pytorch`with `tensorflow`, `keras`,`caffe`，`mxnet`,
-if you want to use tensorflow, just run:
-```
-python tensorflow_infer.py  --img-path /path/to/your/img
-```
-**Attention，for caffe's inference ，we use permute layer，so that we should use [caffe-ssd](https://github.com/weiliu89/caffe/tree/ssd)**，you can use opencv-dnn to do the inference.
+
 ## Appendix
-### Feedback
-If you use wechat, you can follow us.
-
-![](img/wx.png)
-
-** If you use Wechat, scan the code to add  me on wechat **
-
-![](img/author.jpg)
-
 
 ### Model structure
 
@@ -94,4 +74,3 @@ We merge the BN to Conv layers in order to accelerate the inference speed.
 
 [aizoo.com face mask detection demo](https://demo.aizoo.com/face-mask-detection.html)
 
-![](img/facemask.gif)
