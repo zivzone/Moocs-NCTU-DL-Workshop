@@ -88,6 +88,8 @@ def inference(image,
             cv2.putText(image, "%s: %.2f" % (id2class[class_id], conf), (xmin + 2, ymin - 2),
                         cv2.FONT_HERSHEY_SIMPLEX, 0.8, color)
         output_info.append([class_id, conf, xmin, ymin, xmax, ymax])
+    cv2.imwrite('image.png',image)
+
 
     if show_result:
         Image.fromarray(image).show()
@@ -135,7 +137,7 @@ def run_on_video(video_path, output_video_name, conf_thresh):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Face Mask Detection")
     parser.add_argument('--img-mode', type=int, default=1, help='set 1 to run on image, 0 to run on video.')
-    parser.add_argument('--img-path', type=str, help='path to your image.')
+    parser.add_argument('--img-path', type=str, default='face-detection/img/demo2.jpg', help='path to your image.')
     parser.add_argument('--video-path', type=str, default='0', help='path to your video, `0` means to use camera.')
     # parser.add_argument('--hdf5', type=str, help='keras hdf5 file')
     args = parser.parse_args()
